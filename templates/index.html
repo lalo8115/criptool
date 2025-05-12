@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CriptoTool Pro - Flask</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="particles-container" id="particles-js"></div>
+  
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h1><i class="fas fa-lock"></i> CriptoTool <span class="highlight">Pro</span></h1>
+        <p class="subtitle">Herramienta avanzada de cifrado</p>
+        <div class="animated-border"></div>
+      </div>
+      
+      <form method="POST" class="crypto-form">
+        <div class="form-group">
+          <label for="metodo">
+            <i class="fas fa-key"></i> Método:
+          </label>
+          <select name="metodo" class="styled-select">
+            <option value="cesar-encriptar">Cifrado César (Encriptar)</option>
+            <option value="cesar-desencriptar">Cifrado César (Desencriptar)</option>
+            <option value="vigenere-encriptar">Cifrado Vigenère (Encriptar)</option>
+            <option value="vigenere-desencriptar">Cifrado Vigenère (Desencriptar)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="clave">
+            <i class="fas fa-unlock-alt"></i> Clave:
+          </label>
+          <input type="text" name="clave" required class="styled-input" placeholder="Ingresa tu clave secreta"/>
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje">
+            <i class="fas fa-comment-alt"></i> Mensaje:
+          </label>
+          <textarea name="mensaje" rows="5" required class="styled-textarea" placeholder="Escribe tu mensaje aquí..."></textarea>
+        </div>
+
+        <button type="submit" class="glow-button">
+          <span class="button-text">Procesar</span>
+          <i class="fas fa-arrow-right button-icon"></i>
+        </button>
+      </form>
+
+      {% if resultado %}
+        <div class="result-container animate-result">
+          <h3><i class="fas fa-terminal"></i> Resultado:</h3>
+          <div class="resultado">{{ resultado }}</div>
+          <button class="copy-button" onclick="copyToClipboard()">
+            <i class="far fa-copy"></i> Copiar
+          </button>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
