@@ -1,10 +1,10 @@
 :root {
-  --primary: #6c5ce7;
-  --primary-dark: #5649c0;
-  --secondary: #00cec9;
-  --accent: #fd79a8;
-  --dark: #2d3436;
-  --light: #f5f6fa;
+  --primary: #5d4ae3; /* More vibrant purple */
+  --primary-dark: #4538b8;
+  --secondary: #00b4b0; /* More saturated teal */
+  --accent: #ff6b9d; /* Brighter pink */
+  --dark: #1a1e1f; /* Darker background */
+  --light: #ffffff; /* Pure white for text */
   --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
 }
 
@@ -24,6 +24,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
+  background: var(--dark); /* Solid dark background behind particles */
 }
 
 .container {
@@ -36,20 +37,20 @@ body {
 }
 
 .card {
-  background: rgba(45, 52, 54, 0.85);
+  background: rgba(26, 30, 31, 0.95); /* Less transparency for better contrast */
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7); /* Darker shadow */
   width: 100%;
   max-width: 800px;
   padding: 2.5em;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Slightly more visible border */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
 }
 
 .card-header {
@@ -66,28 +67,31 @@ body {
   background-clip: text;
   color: transparent;
   display: inline-block;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Added shadow for better visibility */
 }
 
 .card-header .highlight {
   color: var(--accent);
-  text-shadow: 0 0 10px rgba(253, 121, 168, 0.5);
+  text-shadow: 0 0 15px rgba(255, 107, 157, 0.7); /* More intense glow */
 }
 
 .subtitle {
   color: var(--secondary);
   font-size: 1.1rem;
   margin-top: 0.5em;
-  opacity: 0.9;
+  font-weight: 600; /* Bolder text */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .animated-border {
-  height: 3px;
-  width: 100px;
+  height: 4px; /* Thicker border */
+  width: 120px; /* Longer border */
   background: var(--gradient);
   margin: 1em auto;
   border-radius: 3px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Added shadow */
 }
 
 .animated-border::after {
@@ -97,7 +101,7 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent); /* Brighter shine */
   animation: shine 2s infinite;
 }
 
@@ -124,28 +128,31 @@ body {
   align-items: center;
   gap: 0.5em;
   color: var(--secondary);
-  font-weight: 500;
+  font-weight: 600; /* Bolder labels */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .styled-select, .styled-input, .styled-textarea {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08); /* Darker background */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* More visible border */
   border-radius: 10px;
   padding: 0.8em 1em;
-  color: var(--dark);
+  color: var(--light);
   font-size: 1rem;
   transition: all 0.3s ease;
+  font-weight: 500; /* Slightly bolder text */
 }
 
 .styled-select:focus, .styled-input:focus, .styled-textarea:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.3);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.4); /* More prominent focus */
+  background: rgba(255, 255, 255, 0.12); /* Slightly lighter on focus */
 }
 
 .styled-select {
   appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300cec9'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300b4b0'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 1em center;
   background-size: 1em;
@@ -155,6 +162,7 @@ body {
 .styled-textarea {
   min-height: 150px;
   resize: vertical;
+  line-height: 1.5; /* Better readability */
 }
 
 .glow-button {
@@ -164,21 +172,22 @@ body {
   border-radius: 50px;
   padding: 1em 2em;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700; /* Bolder button text */
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5em;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+  box-shadow: 0 4px 20px rgba(93, 74, 227, 0.5); /* More intense glow */
   position: relative;
   overflow: hidden;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .glow-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(108, 92, 231, 0.6);
+  box-shadow: 0 6px 25px rgba(93, 74, 227, 0.7);
 }
 
 .glow-button:active {
@@ -192,7 +201,7 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); /* Brighter shine */
   transition: 0.5s;
 }
 
@@ -210,10 +219,10 @@ body {
 
 .result-container {
   margin-top: 2em;
-  background: rgba(0, 206, 201, 0.1);
+  background: rgba(0, 180, 176, 0.15); /* More opaque background */
   border-radius: 10px;
   padding: 1.5em;
-  border: 1px solid rgba(0, 206, 201, 0.2);
+  border: 1px solid rgba(0, 180, 176, 0.3); /* More visible border */
   animation: fadeIn 0.5s ease;
 }
 
@@ -234,17 +243,21 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5em;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .resultado {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.4); /* Darker background */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* More visible border */
   padding: 1em;
   white-space: pre-wrap;
   border-radius: 5px;
   margin: 1em 0;
   font-family: 'Courier New', monospace;
   position: relative;
+  line-height: 1.6; /* Better readability */
+  color: #ffffff; /* Pure white text */
 }
 
 .resultado::before {
@@ -252,10 +265,11 @@ body {
   position: absolute;
   left: -1.5em;
   color: var(--accent);
+  font-weight: bold;
 }
 
 .copy-button {
-  background: rgba(253, 121, 168, 0.1);
+  background: rgba(255, 107, 157, 0.15); /* More opaque */
   color: var(--accent);
   border: 1px solid var(--accent);
   border-radius: 5px;
@@ -265,10 +279,13 @@ body {
   align-items: center;
   gap: 0.5em;
   transition: all 0.3s ease;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .copy-button:hover {
-  background: rgba(253, 121, 168, 0.2);
+  background: rgba(255, 107, 157, 0.25);
+  box-shadow: 0 0 10px rgba(255, 107, 157, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -279,4 +296,20 @@ body {
   .card-header h1 {
     font-size: 2rem;
   }
+}
+
+/* Additional contrast improvements */
+input::placeholder, textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5); /* More visible placeholder */
+}
+
+/* Stronger text shadows for better readability */
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Enhanced focus states for accessibility */
+*:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
